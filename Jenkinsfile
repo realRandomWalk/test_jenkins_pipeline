@@ -1,22 +1,7 @@
-pipeline {
-    agent any 
-
-    stages {
-        stage('Build') { 
-            steps { 
-                sh 'make' 
-            }
-        }
-        stage('Test'){
-            steps {
-                sh 'make check'
-                junit 'reports/**/*.xml' 
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'make publish'
-            }
-        }
-    }
+node('node') {
+  stage 'test'
+    sh "echo 'this is testing'"
+  stage 'Build'
+    sh "echo 'this is building'"
 }
+
