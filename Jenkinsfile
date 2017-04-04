@@ -21,10 +21,5 @@ pipeline {
         sh 'echo \'this is a deploy\''
       }
     }
-    stage('Passed') {
-      steps {
-        mail(subject: 'This is success', body: 'You have succeeded', from: 'scott.a.marsh@gmail.com', to: 'scott.a.marsh@gmail.com')
-      }
-    }
   }
 }
