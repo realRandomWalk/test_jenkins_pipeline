@@ -13,6 +13,7 @@ pipeline {
           sh 'echo \'this is a build\''
         }
         
+        input 'We need some input...ok?'
       }
     }
     stage('Deploy') {
