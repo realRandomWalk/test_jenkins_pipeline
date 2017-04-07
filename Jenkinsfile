@@ -1,7 +1,7 @@
 pipeline {
   def triggers = []
   triggers << cron('H H(0-2) * * *')
-  properties (
+  options (
     [
         pipelineTriggers(triggers)
     ]
