@@ -1,3 +1,12 @@
+def triggers = []
+triggers << cron('H H(0-2) * * *')
+properties (
+    [
+        pipelineTriggers(triggers)
+
+    ]
+)
+
 pipeline {
   agent any
   stages {
