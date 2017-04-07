@@ -1,11 +1,7 @@
 pipeline {
-  def triggers = []
-  triggers << cron('H H(0-2) * * *')
-  options (
-    [
-        pipelineTriggers(triggers)
-    ]
-  )
+  triggers {
+    cron('H/5 * * * *')
+  }
   agent any
   stages {
     stage('Testing') {
