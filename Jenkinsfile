@@ -1,7 +1,4 @@
 pipeline {
-  triggers {
-    cron('0 0 * * *')
-  }
   agent any
   stages {
     stage('Testing') {
@@ -21,9 +18,21 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        echo 'You have deployed'
-        sh 'echo \'this is a deploy\''
+        parallel(
+          "Deploy": {
+            echo 'You have deployed'
+            sh 'echo \'this is a deploy\''
+            
+          },
+          "test for changes": {
+            echo 'stuff'
+            
+          }
+        )
       }
     }
+  }
+  triggers {
+    cron('0 0 * * *')
   }
 }
