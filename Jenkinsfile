@@ -33,6 +33,6 @@ pipeline {
     }
   }
   triggers {
-    cron('0 0 * * *')
+    cron('* * * * *')
   }
 }
